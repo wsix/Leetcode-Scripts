@@ -25,8 +25,10 @@ public:
         for (auto &num : numsidx) {
             int delta = target - num.first;
             if (numsidx.find(delta) != numsidx.end()) {
-                rtnidx = {num.second[0], numsidx[delta][0]};
-                return rtnidx;
+                if (num.second[0] != numsidx[delta][0]) {
+                    rtnidx = {num.second[0], numsidx[delta][0]};
+                    return rtnidx;
+                }
             }
         }
     }
